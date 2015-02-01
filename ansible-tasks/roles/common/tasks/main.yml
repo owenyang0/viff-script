@@ -8,20 +8,24 @@
   #     - git
   #     - tmux
   #
-  - name: Get my config
-    git: repo=https://github.com/owenyang0/config.git
-         dest=~/config
-         version=ubuntu
-    sudo: no
+  # - name: Get my config
+  #   git: repo=https://github.com/owenyang0/config.git
+  #        dest=~/config
+  #        version=ubuntu
+  #   sudo: no
+  #
+  # - name: Config my vim vundle
+  #   git: repo=https://github.com/gmarik/Vundle.vim.git
+  #        dest=~/.vim/bundle/Vundle.vim
+  #   sudo: no
+  #
+  # - name: Replace the config file
+  #   copy: src=config/.ssh/ dest=~/.ssh/ owner=vagrant group=vagrant directory_mode=true mode=600
+  #   sudo: no
+  #
+  # - name: Apply my config
+  #   shell: bash ~/config/autolink
 
-  - name: Config my vim vundle
-    git: repo=https://github.com/gmarik/Vundle.vim.git
-         dest=~/.vim/bundle/Vundle.vim
-    sudo: no
-    
-  - name: Replace the config file
-    copy: src=config/.ssh/ dest=~/.ssh/ owner=vagrant group=vagrant directory_mode=true mode=600
-    sudo: no
-
-# - name: Apply my config
-#   shell: bash ~/config/autolink
+  - name: Install docker
+    shell: apt-get install docker.io -y
+    sudo: yes
